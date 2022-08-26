@@ -56,9 +56,6 @@ def main():
                         "platform": "Android-ARM",
                         "email": usuario["email"],
                         "birth_day": random.randint(1, 20)}
-            context = ssl.create_default_context()
-            context.load_verify_locations(cafile="zyte-proxy-ca.crt")
-            # context = httpx.create_ssl_context(None,)# .create_ssl_context(verify="zyte-proxy-ca.crt")
             r = httpx.post('https://spclient.wg.spotify.com/signup/public/v1/account/', headers=headers, data=payload)
             print(r.text)
 
